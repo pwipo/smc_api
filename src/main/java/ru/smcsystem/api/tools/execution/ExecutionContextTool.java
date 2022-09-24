@@ -31,13 +31,6 @@ public interface ExecutionContextTool extends IExecutionContext {
     void addError(Object value);
 
     /**
-     * get count sources
-     *
-     * @return count
-     */
-    int countSource();
-
-    /**
      * get count commands in source
      *
      * @param sourceId serial number in the list of Sources

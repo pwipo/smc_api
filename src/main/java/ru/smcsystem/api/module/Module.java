@@ -14,33 +14,33 @@ public interface Module {
     /**
      * call once per process on start
      *
-     * @param configurationTool
-     * @throws ModuleException
+     * @param configurationTool config tool
+     * @throws ModuleException main exception
      */
     void start(ConfigurationTool configurationTool) throws ModuleException;
 
     /**
      * main method. call every time when need execute
      *
-     * @param configurationTool
-     * @param executionContextTool
-     * @throws ModuleException
+     * @param configurationTool    config tool
+     * @param executionContextTool execution context tool
+     * @throws ModuleException main exception
      */
     void process(ConfigurationTool configurationTool, ExecutionContextTool executionContextTool) throws ModuleException;
 
     /**
      * call then need update
      *
-     * @param configurationTool
-     * @throws ModuleException
+     * @param configurationTool config tool
+     * @throws ModuleException main exception
      */
     void update(ConfigurationTool configurationTool) throws ModuleException;
 
     /**
      * call once per process on stop
      *
-     * @param configurationTool
-     * @throws ModuleException
+     * @param configurationTool config tool
+     * @throws ModuleException main exception
      */
     void stop(ConfigurationTool configurationTool) throws ModuleException;
 

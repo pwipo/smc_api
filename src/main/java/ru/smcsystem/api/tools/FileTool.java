@@ -12,7 +12,7 @@ public interface FileTool {
     /**
      * get name
      *
-     * @return
+     * @return name
      */
     String getName();
 

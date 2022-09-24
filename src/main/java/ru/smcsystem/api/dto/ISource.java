@@ -1,7 +1,8 @@
 package ru.smcsystem.api.dto;
 
-import ru.smcsystem.api.enumeration.SourceGetType;
 import ru.smcsystem.api.enumeration.SourceType;
+
+import java.util.Optional;
 
 /**
  * Interface for Source
@@ -18,33 +19,39 @@ public interface ISource {
     SourceType getType();
 
     /**
-     * get value
-     * depend on type
-     *
-     * @return IConfiguration for MODULE_CONFIGURATION, IExecutionContext for EXECUTION_CONTEXT, IValue for STATIC_VALUE, NULL for MULTIPART
-     */
-    Object getValue();
-
-    /**
-     * get order.
-     * determines the position in the source list.
+     * count params
      *
      * @return int
      */
-    int getOrder();
+    int countParams();
 
     /**
-     * is source event driven.
+     * get param
+     * params may have any types, depends on the SourceType and id
      *
-     * @return true if it is true
+     * @param id serial number in the list of source params
+     * @return Object depend on type:
+     * MODULE_CONFIGURATION: IConfiguration configuration (source), SourceGetType getType (type of get commands from source), int countLast (only for ContextSourceGetType.LAST. minimum 1), boolean eventDriven (is event driven)
+     * EXECUTION_CONTEXT: IExecutionContext executionContext (source), SourceGetType getType (type of get commands from source), int countLast (only for ContextSourceGetType.LAST. minimum 1), boolean eventDriven (is event driven)
+     * STATIC_VALUE: IValue (String, Number or byte array)
+     * MULTIPART: null
+     * CALLER_RELATIVE_NAME: String (caller level cfg name)
      */
-    boolean isEventDriven();
+    Optional<Object> getParam(int id);
 
     /**
-     * get source list
+     * count filters
      *
-     * @return ISourceList for MULTIPART or null
+     * @return int
      */
-    ISourceList getList();
+    int countFilters();
+
+    /**
+     * get filter
+     *
+     * @param id serial number in the list of Filters
+     * @return ISourceFilter
+     */
+    Optional<ISourceFilter> getFilter(int id);
 
 }

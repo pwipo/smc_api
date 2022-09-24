@@ -1,6 +1,8 @@
 package ru.smcsystem.api.tools.execution;
 
-import ru.smcsystem.api.dto.*;
+import ru.smcsystem.api.dto.IAction;
+import ru.smcsystem.api.dto.ICommand;
+import ru.smcsystem.api.dto.IExecutionContext;
 import ru.smcsystem.api.enumeration.CommandType;
 
 import java.util.List;
@@ -16,7 +18,7 @@ public interface FlowControlTool {
     /**
      * count managed execution contexts
      *
-     * @return
+     * @return count
      */
     int countManagedExecutionContexts();
 
@@ -27,7 +29,7 @@ public interface FlowControlTool {
      * command execute in this thread
      * function will wait for the command to execute
      *
-     * @param type
+     * @param type      type of command
      * @param managedId serial number in the list of Managed execution contexts
      * @param values    list of values for create dummy messages from this process, or null
      */
@@ -38,7 +40,7 @@ public interface FlowControlTool {
      * command execute in new thread
      * function return control immediately
      *
-     * @param type
+     * @param type            type of command
      * @param managedIds      serial number in the list of Managed execution contexts
      * @param values          list of values for create dummy messages from this process, or null
      * @param waitingTacts    if it is necessary that the new thread first wait for the specified time (in tacts)
@@ -53,7 +55,7 @@ public interface FlowControlTool {
      * check is thread alive
      *
      * @param threadId id thread
-     * @return
+     * @return boolean
      */
     boolean isThreadActive(long threadId);
 
@@ -80,7 +82,7 @@ public interface FlowControlTool {
     /**
      * work as getMessagesFromExecuted
      *
-     * @param managedId
+     * @param managedId serial number in the list of Managed execution contexts
      * @return all commands
      */
     List<ICommand> getCommandsFromExecuted(int managedId);
@@ -88,8 +90,8 @@ public interface FlowControlTool {
     /**
      * work as getMessagesFromExecuted
      *
-     * @param threadId
-     * @param managedId
+     * @param threadId  id thread
+     * @param managedId serial number in the list of Managed execution contexts
      * @return all commands
      */
     List<ICommand> getCommandsFromExecuted(long threadId, int managedId);

@@ -36,7 +36,6 @@ public interface IConfigurationManaged extends IConfiguration {
      * remove variable
      *
      * @param key variable name
-     * @return IValue
      */
     void removeVariable(String key);
 

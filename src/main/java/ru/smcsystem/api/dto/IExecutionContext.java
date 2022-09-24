@@ -5,10 +5,11 @@ package ru.smcsystem.api.dto;
  *
  * @version 1.0.0
  */
-public interface IExecutionContext {
+public interface IExecutionContext extends ISourceList {
 
     /**
      * get configuration
+     *
      * @return configuration
      */
     IConfiguration getConfiguration();

@@ -7,7 +7,7 @@ import java.util.Optional;
  *
  * @version 1.0.0
  */
-public interface IExecutionContextManaged extends IExecutionContext, ISourceList {
+public interface IExecutionContextManaged extends IExecutionContext, ISourceListManaged {
 
     /**
      * change name
