@@ -1,10 +1,9 @@
 package ru.smcsystem.api.tools.execution;
 
-import ru.smcsystem.api.dto.IAction;
-import ru.smcsystem.api.dto.ICommand;
-import ru.smcsystem.api.dto.IExecutionContext;
-import ru.smcsystem.api.dto.IExecutionContextManaged;
+import ru.smcsystem.api.dto.*;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -18,17 +17,83 @@ public interface ExecutionContextTool extends IExecutionContext {
      * emit message
      * type DATA
      *
-     * @param value object (type String, Number, byte[])
+     * @param value object
      */
-    void addMessage(Object value);
+    void addMessage(String value);
+
+    void addMessage(Byte value);
+
+    void addMessage(Short value);
+
+    void addMessage(Integer value);
+
+    void addMessage(Long value);
+
+    void addMessage(Float value);
+
+    void addMessage(Double value);
+
+    void addMessage(BigInteger value);
+
+    void addMessage(BigDecimal value);
+
+    void addMessage(byte[] value);
+
+    void addMessage(ObjectArray value);
+
+    /**
+     * emit message
+     * type DATA
+     * autodetect type each value
+     *
+     * @param values List of objects (String, Number, byte[], ObjectArray)
+     */
+    void addMessage(List<Object> values);
 
     /**
      * emit error message
      * type ERROR
      *
-     * @param value object (type String, Number, byte[])
+     * @param value object
      */
-    void addError(Object value);
+    void addError(String value);
+
+    void addError(Byte value);
+
+    void addError(Short value);
+
+    void addError(Integer value);
+
+    void addError(Long value);
+
+    void addError(Float value);
+
+    void addError(Double value);
+
+    void addError(BigInteger value);
+
+    void addError(BigDecimal value);
+
+    void addError(byte[] value);
+
+    void addError(ObjectArray value);
+
+    /**
+     * emit error message
+     * type ERROR
+     * autodetect type each value
+     *
+     * @param values List of objects (String, Number, byte[], ObjectArray)
+     */
+    void addError(List<Object> values);
+
+    /**
+     * emit log message
+     * type LOG
+     *
+     * @param value object
+     */
+    void addLog(String value);
 
     /**
      * get count commands in source

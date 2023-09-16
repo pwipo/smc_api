@@ -1,7 +1,5 @@
 package ru.smcsystem.api.dto;
 
-import ru.smcsystem.api.exceptions.ModuleException;
-
 import java.util.Map;
 import java.util.Optional;
 
@@ -71,10 +69,24 @@ public interface IConfiguration {
     long getBufferSize();
 
     /**
+     * get thread buffer size
+     *
+     * @return int
+     */
+    long getThreadBufferSize();
+
+    /**
      * is work
      *
      * @return true if work
      */
     boolean isEnable();
+
+    /**
+     * check is configuration work now (process execute any commands)
+     *
+     * @return boolean
+     */
+    boolean isActive();
 
 }

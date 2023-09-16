@@ -3,8 +3,11 @@ package ru.smcsystem.api.tools;
 import ru.smcsystem.api.dto.IConfiguration;
 import ru.smcsystem.api.dto.IContainerManaged;
 import ru.smcsystem.api.dto.IExecutionContext;
+import ru.smcsystem.api.dto.ObjectArray;
 import ru.smcsystem.api.exceptions.ModuleException;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Optional;
 
 /**
@@ -18,9 +21,29 @@ public interface ConfigurationTool extends IConfiguration {
      * change variable
      *
      * @param key   variable name
-     * @param value value object (String, Number, byte[])
+     * @param value value object
      */
-    void setVariable(String key, Object value);
+    void setVariable(String key, String value);
+
+    void setVariable(String key, Byte value);
+
+    void setVariable(String key, Short value);
+
+    void setVariable(String key, Integer value);
+
+    void setVariable(String key, Long value);
+
+    void setVariable(String key, Float value);
+
+    void setVariable(String key, Double value);
+
+    void setVariable(String key, BigInteger value);
+
+    void setVariable(String key, BigDecimal value);
+
+    void setVariable(String key, byte[] value);
+
+    void setVariable(String key, ObjectArray value);
 
     /**
      * check is variable has changed from last execution or last check
@@ -84,5 +107,40 @@ public interface ConfigurationTool extends IConfiguration {
      * @return boolean - true if has license
      */
     boolean hasLicense(int freeDays);
+
+    /**
+     * logger trace
+     *
+     * @param text - text
+     */
+    void loggerTrace(String text);
+
+    /**
+     * logger debug
+     *
+     * @param text - text
+     */
+    void loggerDebug(String text);
+
+    /**
+     * logger info
+     *
+     * @param text - text
+     */
+    void loggerInfo(String text);
+
+    /**
+     * logger warn
+     *
+     * @param text - text
+     */
+    void loggerWarn(String text);
+
+    /**
+     * logger error
+     *
+     * @param text - text
+     */
+    void loggerError(String text);
 
 }

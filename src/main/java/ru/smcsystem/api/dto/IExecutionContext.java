@@ -36,4 +36,11 @@ public interface IExecutionContext extends ISourceList {
      */
     boolean isEnable();
 
+    /**
+     * check is context work now (execute any command)
+     *
+     * @return boolean
+     */
+    boolean isActive();
+
 }

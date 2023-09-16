@@ -55,6 +55,14 @@ public interface IExecutionContextManaged extends IExecutionContext, ISourceList
     void insertExecutionContext(int id, IExecutionContext executionContext);
 
     /**
+     * update execution context in list
+     *
+     * @param id               serial number in the list of Execution Contexts
+     * @param executionContext execution context
+     */
+    void updateExecutionContext(int id, IExecutionContext executionContext);
+
+    /**
      * remove execution context from list
      *
      * @param id serial number in the list of Execution Contexts
@@ -86,6 +94,14 @@ public interface IExecutionContextManaged extends IExecutionContext, ISourceList
      * @param configuration configuration
      */
     void insertManagedConfiguration(int id, IConfiguration configuration);
+
+    /**
+     * update configuration in list
+     *
+     * @param id            serial number in the list of Managed configurations
+     * @param configuration configuration
+     */
+    void updateManagedConfiguration(int id, IConfiguration configuration);
 
     /**
      * remove configuration from list

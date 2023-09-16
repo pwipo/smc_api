@@ -67,7 +67,14 @@ public enum MessageType {
      * normal message
      * or by system
      */
-    DATA/*(1001)*/;
+    DATA/*(1001)*/,
+
+
+    /**
+     * emit by module process while execution phase
+     * log message
+     */
+    LOG/*(1002)*/;
 
 
     /*

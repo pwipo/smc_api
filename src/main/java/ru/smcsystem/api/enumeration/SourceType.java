@@ -11,5 +11,6 @@ public enum SourceType {
     STATIC_VALUE,
     MULTIPART,
     CALLER,
-    CALLER_RELATIVE_NAME
+    CALLER_RELATIVE_NAME,
+    OBJECT_ARRAY
 }

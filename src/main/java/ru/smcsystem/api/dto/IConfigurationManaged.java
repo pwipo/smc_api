@@ -1,5 +1,7 @@
 package ru.smcsystem.api.dto;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Optional;
 
 /**
@@ -20,17 +22,57 @@ public interface IConfigurationManaged extends IConfiguration {
      * change setting
      *
      * @param key   setting name
-     * @param value value object (String, Number, byte[])
+     * @param value value object
      */
-    void setSetting(String key, Object value);
+    void setSetting(String key, String value);
+
+    void setSetting(String key, Byte value);
+
+    void setSetting(String key, Short value);
+
+    void setSetting(String key, Integer value);
+
+    void setSetting(String key, Long value);
+
+    void setSetting(String key, Float value);
+
+    void setSetting(String key, Double value);
+
+    void setSetting(String key, BigInteger value);
+
+    void setSetting(String key, BigDecimal value);
+
+    void setSetting(String key, byte[] value);
+
+    void setSetting(String key, ObjectArray value);
 
     /**
      * change variable
      *
      * @param key   variable name
-     * @param value value object (String, Number, byte[])
+     * @param value value object
      */
-    void setVariable(String key, Object value);
+    void setVariable(String key, String value);
+
+    void setVariable(String key, Byte value);
+
+    void setVariable(String key, Short value);
+
+    void setVariable(String key, Integer value);
+
+    void setVariable(String key, Long value);
+
+    void setVariable(String key, Float value);
+
+    void setVariable(String key, Double value);
+
+    void setVariable(String key, BigInteger value);
+
+    void setVariable(String key, BigDecimal value);
+
+    void setVariable(String key, byte[] value);
+
+    void setVariable(String key, ObjectArray value);
 
     /**
      * remove variable
@@ -42,9 +84,16 @@ public interface IConfigurationManaged extends IConfiguration {
     /**
      * change buffer size
      *
-     * @param bufferSize 1 is minimum
+     * @param bufferSize 0 is minimum
      */
     void setBufferSize(long bufferSize);
+
+    /**
+     * change thread buffer size
+     *
+     * @param threadBufferSize 1 is minimum
+     */
+    void setThreadBufferSize(long threadBufferSize);
 
     /**
      * enable or disable configuration
@@ -71,11 +120,21 @@ public interface IConfigurationManaged extends IConfiguration {
     /**
      * create execution context and bind it to this configuration
      *
-     * @param name unique name for configuration
+     * @param name            unique name for configuration
      * @param maxWorkInterval max work interval. if -1, no time limit. in milliseconds
      * @return IExecutionContextManaged
      */
     IExecutionContextManaged createExecutionContext(String name, int maxWorkInterval);
+
+    /**
+     * update execution context in list
+     *
+     * @param id              serial number in the list of execution contexts
+     * @param name            unique name for configuration
+     * @param maxWorkInterval max work interval. if -1, no time limit. in milliseconds
+     * @return IExecutionContextManaged
+     */
+    IExecutionContextManaged updateExecutionContext(int id, String name, int maxWorkInterval);
 
     /**
      * delete execution context
@@ -86,6 +145,7 @@ public interface IConfigurationManaged extends IConfiguration {
 
     /**
      * get container
+     *
      * @return IContainerManaged
      */
     IContainerManaged getContainer();

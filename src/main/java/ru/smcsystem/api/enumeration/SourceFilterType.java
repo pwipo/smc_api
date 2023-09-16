@@ -9,5 +9,6 @@ public enum SourceFilterType {
     POSITION,
     NUMBER,
     STRING_EQUAL,
-    STRING_CONTAIN
+    STRING_CONTAIN,
+    OBJECT_PATHS
 }
