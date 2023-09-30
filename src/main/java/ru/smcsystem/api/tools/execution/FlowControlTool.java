@@ -98,10 +98,19 @@ public interface FlowControlTool {
 
     /**
      * after executeParallel and work with him, need to release thread
+     * if thread work - stop it
      *
      * @param threadId id thread
      */
     void releaseThread(long threadId);
+
+    /**
+     * after executeParallel and work with him, need to release thread
+     * if thread work - not stop it
+     *
+     * @param threadId id thread
+     */
+    void releaseThreadCache(long threadId);
 
     // boolean isError(int managedId);
 
