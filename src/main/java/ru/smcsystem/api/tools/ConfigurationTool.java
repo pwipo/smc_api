@@ -45,6 +45,8 @@ public interface ConfigurationTool extends IConfiguration {
 
     void setVariable(String key, ObjectArray value);
 
+    void setVariable(String key, Boolean value);
+
     /**
      * check is variable has changed from last execution or last check
      * usfull for check changes from external (processes or user)
@@ -99,14 +101,6 @@ public interface ConfigurationTool extends IConfiguration {
      * @return IContainerManaged
      */
     IContainerManaged getContainer();
-
-    /**
-     * check if has license
-     *
-     * @param freeDays - free trial days. 0 or more.
-     * @return boolean - true if has license
-     */
-    boolean hasLicense(int freeDays);
 
     /**
      * logger trace

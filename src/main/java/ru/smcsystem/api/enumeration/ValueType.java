@@ -16,5 +16,6 @@ public enum ValueType {
     DOUBLE,
     BIG_DECIMAL,
     BYTES,
-    OBJECT_ARRAY
+    OBJECT_ARRAY,
+    BOOLEAN
 }

@@ -18,5 +18,6 @@ public enum ObjectType {
     DOUBLE,
     BIG_INTEGER,
     BIG_DECIMAL,
-    BYTES
+    BYTES,
+    BOOLEAN
 }

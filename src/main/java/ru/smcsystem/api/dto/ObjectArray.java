@@ -80,6 +80,9 @@ public class ObjectArray implements Serializable, Cloneable {
                 case BYTES:
                     ((List<byte[]>) (List) objects).forEach(this::add);
                     break;
+                case BOOLEAN:
+                    ((List<Boolean>) (List) objects).forEach(this::add);
+                    break;
                 default:
                     throw new IllegalArgumentException();
             }
@@ -92,7 +95,7 @@ public class ObjectArray implements Serializable, Cloneable {
 
     private void check(ObjectType type) {
         if (!this.type.equals(type)
-                && !(ObjectType.VALUE_ANY.equals(this.type) && (ObjectType.STRING.equals(type) || ObjectType.BYTE.equals(type) || ObjectType.SHORT.equals(type) || ObjectType.INTEGER.equals(type) || ObjectType.LONG.equals(type) || ObjectType.FLOAT.equals(type) || ObjectType.DOUBLE.equals(type) || ObjectType.BIG_INTEGER.equals(type) || ObjectType.BIG_DECIMAL.equals(type) || ObjectType.BYTES.equals(type))))
+                && !(ObjectType.VALUE_ANY.equals(this.type) && (ObjectType.STRING.equals(type) || ObjectType.BYTE.equals(type) || ObjectType.SHORT.equals(type) || ObjectType.INTEGER.equals(type) || ObjectType.LONG.equals(type) || ObjectType.FLOAT.equals(type) || ObjectType.DOUBLE.equals(type) || ObjectType.BIG_INTEGER.equals(type) || ObjectType.BIG_DECIMAL.equals(type) || ObjectType.BYTES.equals(type) || ObjectType.BOOLEAN.equals(type))))
             throw new IllegalArgumentException();
     }
 
@@ -176,6 +179,13 @@ public class ObjectArray implements Serializable, Cloneable {
         objects.add(value);
     }
 
+    public void add(Boolean value) {
+        if (value == null)
+            throw new IllegalArgumentException();
+        check(ObjectType.BOOLEAN);
+        objects.add(value);
+    }
+
     public void add(ObjectField value) {
         if (value == null)
             throw new IllegalArgumentException();
@@ -186,7 +196,7 @@ public class ObjectArray implements Serializable, Cloneable {
     public void addValueAny(Object value) {
         if (value == null)
             throw new IllegalArgumentException();
-        if (!(value instanceof String || value instanceof Number || value instanceof byte[]))
+        if (!(value instanceof String || value instanceof Number || value instanceof byte[] || value instanceof Boolean))
             throw new IllegalArgumentException();
         check(ObjectType.VALUE_ANY);
         objects.add(value);
@@ -261,6 +271,13 @@ public class ObjectArray implements Serializable, Cloneable {
         if (value == null)
             throw new IllegalArgumentException();
         check(ObjectType.BYTES);
+        objects.add(id, value);
+    }
+
+    public void add(int id, Boolean value) {
+        if (value == null)
+            throw new IllegalArgumentException();
+        check(ObjectType.BOOLEAN);
         objects.add(id, value);
     }
 

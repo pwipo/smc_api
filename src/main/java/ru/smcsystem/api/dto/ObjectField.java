@@ -11,6 +11,7 @@ import java.util.Objects;
  * Field for Object
  * use for serialization/deserialization messages as object - object serialization format
  * the value can be one of the following types: ObjectArray, ObjectElement, String, Byte, Short, Integer, Long, Float, Double, BigInteger, BigDecimal, byte[].
+ * value may be null
  */
 public class ObjectField implements Serializable, Cloneable {
 
@@ -52,6 +53,11 @@ public class ObjectField implements Serializable, Cloneable {
         this.setValue(value);
     }
 
+    public ObjectField(String name, Boolean value) {
+        this(name);
+        this.setValue(value);
+    }
+
     public ObjectField(String name, ObjectField value) {
         this(name);
         this.setValue(value);
@@ -84,55 +90,54 @@ public class ObjectField implements Serializable, Cloneable {
     }
 
     public void setValue(ObjectArray value) {
-        if (value == null)
-            throw new IllegalArgumentException();
         this.type = ObjectType.OBJECT_ARRAY;
         this.value = value;
     }
 
     public void setValue(ObjectElement value) {
-        if (value == null)
-            throw new IllegalArgumentException();
         this.type = ObjectType.OBJECT_ELEMENT;
         this.value = value;
     }
 
     public void setValue(String value) {
-        if (value == null)
-            throw new IllegalArgumentException();
         this.type = ObjectType.STRING;
         this.value = value;
     }
 
     public void setValue(Number value) {
-        if (value == null)
-            throw new IllegalArgumentException();
-        if (value instanceof Byte) {
-            this.type = ObjectType.BYTE;
-        } else if (value instanceof Short) {
-            this.type = ObjectType.SHORT;
-        } else if (value instanceof Integer) {
-            this.type = ObjectType.INTEGER;
-        } else if (value instanceof Long) {
-            this.type = ObjectType.LONG;
-        } else if (value instanceof Float) {
-            this.type = ObjectType.FLOAT;
-        } else if (value instanceof Double) {
-            this.type = ObjectType.DOUBLE;
-        } else if (value instanceof BigInteger) {
-            this.type = ObjectType.BIG_INTEGER;
-        } else if (value instanceof BigDecimal) {
-            this.type = ObjectType.BIG_DECIMAL;
+        if (value != null) {
+            if (value instanceof Byte) {
+                this.type = ObjectType.BYTE;
+            } else if (value instanceof Short) {
+                this.type = ObjectType.SHORT;
+            } else if (value instanceof Integer) {
+                this.type = ObjectType.INTEGER;
+            } else if (value instanceof Long) {
+                this.type = ObjectType.LONG;
+            } else if (value instanceof Float) {
+                this.type = ObjectType.FLOAT;
+            } else if (value instanceof Double) {
+                this.type = ObjectType.DOUBLE;
+            } else if (value instanceof BigInteger) {
+                this.type = ObjectType.BIG_INTEGER;
+            } else if (value instanceof BigDecimal) {
+                this.type = ObjectType.BIG_DECIMAL;
+            } else {
+                throw new IllegalArgumentException();
+            }
         } else {
-            throw new IllegalArgumentException();
+            this.type = null;
         }
         this.value = value;
     }
 
     public void setValue(byte[] value) {
-        if (value == null)
-            throw new IllegalArgumentException();
         this.type = ObjectType.BYTES;
+        this.value = value;
+    }
+
+    public void setValue(Boolean value) {
+        this.type = ObjectType.BOOLEAN;
         this.value = value;
     }
 
@@ -144,7 +149,7 @@ public class ObjectField implements Serializable, Cloneable {
     }
 
     public void setValue(ObjectType type, Object value) {
-        if (type == null || value == null)
+        if (type == null)
             throw new IllegalArgumentException();
         switch (type) {
             case OBJECT_ARRAY:
@@ -169,8 +174,11 @@ public class ObjectField implements Serializable, Cloneable {
             case BYTES:
                 setValue((byte[]) value);
                 break;
+            case BOOLEAN:
+                setValue((Boolean) value);
+                break;
             default:
-                throw new IllegalArgumentException();
+                this.value = value;
         }
         this.type = type;
     }

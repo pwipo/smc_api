@@ -44,6 +44,8 @@ public interface IConfigurationManaged extends IConfiguration {
 
     void setSetting(String key, byte[] value);
 
+    void setSetting(String key, Boolean value);
+
     void setSetting(String key, ObjectArray value);
 
     /**
@@ -71,6 +73,8 @@ public interface IConfigurationManaged extends IConfiguration {
     void setVariable(String key, BigDecimal value);
 
     void setVariable(String key, byte[] value);
+
+    void setVariable(String key, Boolean value);
 
     void setVariable(String key, ObjectArray value);
 

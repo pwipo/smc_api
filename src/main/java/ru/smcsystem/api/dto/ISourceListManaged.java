@@ -68,6 +68,8 @@ public interface ISourceListManaged extends ISourceList {
 
     ISourceManaged createSource(byte[] value);
 
+    ISourceManaged createSource(Boolean value);
+
     ISourceManaged createSource(ObjectArray value);
 
     /**
@@ -143,6 +145,8 @@ public interface ISourceListManaged extends ISourceList {
     ISourceManaged updateSource(int id, BigDecimal value);
 
     ISourceManaged updateSource(int id, byte[] value);
+
+    ISourceManaged updateSource(int id, Boolean value);
 
     ISourceManaged updateSource(int id, ObjectArray value);
 

@@ -41,6 +41,8 @@ public interface ExecutionContextTool extends IExecutionContext {
 
     void addMessage(ObjectArray value);
 
+    void addMessage(Boolean value);
+
     /**
      * emit message
      * type DATA
@@ -77,6 +79,8 @@ public interface ExecutionContextTool extends IExecutionContext {
     void addError(byte[] value);
 
     void addError(ObjectArray value);
+
+    void addError(Boolean value);
 
     /**
      * emit error message
