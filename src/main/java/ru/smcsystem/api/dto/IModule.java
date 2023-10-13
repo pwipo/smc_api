@@ -71,4 +71,61 @@ public interface IModule {
      */
     int getMaxCountManagedConfigurations();
 
+    int countTypes();
+
+    /**
+     * get type name
+     *
+     * @param typeId serial number in the list of types
+     * @return type name
+     */
+    String getTypeName(int typeId);
+
+    /**
+     * get minimum count sources
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMinCountSources(int typeId);
+
+    /**
+     * get maximum count sources
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMaxCountSources(int typeId);
+
+    /**
+     * get minimum count execution contexts
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMinCountExecutionContexts(int typeId);
+
+    /**
+     * get maximum count execution contexts
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMaxCountExecutionContexts(int typeId);
+
+    /**
+     * get minimum count managed configurations
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMinCountManagedConfigurations(int typeId);
+
+    /**
+     * get maximum count managed configurations
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMaxCountManagedConfigurations(int typeId);
 }

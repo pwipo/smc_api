@@ -125,20 +125,22 @@ public interface IConfigurationManaged extends IConfiguration {
      * create execution context and bind it to this configuration
      *
      * @param name            unique name for configuration
+     * @param type            type
      * @param maxWorkInterval max work interval. if -1, no time limit. in milliseconds
      * @return IExecutionContextManaged
      */
-    IExecutionContextManaged createExecutionContext(String name, int maxWorkInterval);
+    IExecutionContextManaged createExecutionContext(String name, String type, int maxWorkInterval);
 
     /**
      * update execution context in list
      *
      * @param id              serial number in the list of execution contexts
      * @param name            unique name for configuration
+     * @param type            type
      * @param maxWorkInterval max work interval. if -1, no time limit. in milliseconds
      * @return IExecutionContextManaged
      */
-    IExecutionContextManaged updateExecutionContext(int id, String name, int maxWorkInterval);
+    IExecutionContextManaged updateExecutionContext(int id, String name, String type, int maxWorkInterval);
 
     /**
      * delete execution context
