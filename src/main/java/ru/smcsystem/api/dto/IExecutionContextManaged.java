@@ -110,4 +110,11 @@ public interface IExecutionContextManaged extends IExecutionContext, ISourceList
      */
     void removeManagedConfiguration(int id);
 
+    /**
+     * change type
+     *
+     * @param type type name or empty for default/any type (if exist)
+     */
+    void setType(String type);
+
 }

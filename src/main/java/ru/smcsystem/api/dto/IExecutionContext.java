@@ -43,4 +43,12 @@ public interface IExecutionContext extends ISourceList {
      */
     boolean isActive();
 
+    /**
+     * get type
+     * unique for configuration
+     *
+     * @return type or empty for default/any type
+     */
+    String getType();
+
 }
