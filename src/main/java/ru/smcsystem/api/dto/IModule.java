@@ -29,48 +29,6 @@ public interface IModule {
      */
     //String getProvider();
 
-    /**
-     * get minimum count sources
-     *
-     * @return int
-     */
-    int getMinCountSources();
-
-    /**
-     * get maximum count sources
-     *
-     * @return int
-     */
-    int getMaxCountSources();
-
-    /**
-     * get minimum count execution contexts
-     *
-     * @return int
-     */
-    int getMinCountExecutionContexts();
-
-    /**
-     * get maximum count execution contexts
-     *
-     * @return int
-     */
-    int getMaxCountExecutionContexts();
-
-    /**
-     * get minimum count managed configurations
-     *
-     * @return int
-     */
-    int getMinCountManagedConfigurations();
-
-    /**
-     * get maximum count managed configurations
-     *
-     * @return int
-     */
-    int getMaxCountManagedConfigurations();
-
     int countTypes();
 
     /**
@@ -82,21 +40,36 @@ public interface IModule {
     String getTypeName(int typeId);
 
     /**
-     * get count sources
+     * get minimum count sources
      *
      * @param typeId serial number in the list of types
      * @return int
      */
-    int getCountSources(int typeId);
-
+    int getMinCountSources(int typeId);
 
     /**
-     * get count execution contexts
+     * get maximum count sources
      *
      * @param typeId serial number in the list of types
      * @return int
      */
-    int getCountExecutionContexts(int typeId);
+    int getMaxCountSources(int typeId);
+
+    /**
+     * get minimum count execution contexts
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMinCountExecutionContexts(int typeId);
+
+    /**
+     * get maximum count execution contexts
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMaxCountExecutionContexts(int typeId);
 
     /**
      * get minimum count managed configurations
@@ -104,6 +77,14 @@ public interface IModule {
      * @param typeId serial number in the list of types
      * @return int
      */
-    int getCountManagedConfigurations(int typeId);
+    int getMinCountManagedConfigurations(int typeId);
+
+    /**
+     * get maximum count managed configurations
+     *
+     * @param typeId serial number in the list of types
+     * @return int
+     */
+    int getMaxCountManagedConfigurations(int typeId);
 
 }

@@ -112,12 +112,6 @@ public interface FlowControlTool {
      */
     void releaseThreadCache(long threadId);
 
-    // boolean isError(int managedId);
-
-    // boolean isProcessReady(int managedId);
-
-    // boolean isProcessExist(int managedId);
-
     /**
      * get managed execution context
      *
