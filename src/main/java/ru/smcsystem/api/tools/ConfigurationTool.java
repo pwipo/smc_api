@@ -1,9 +1,6 @@
 package ru.smcsystem.api.tools;
 
-import ru.smcsystem.api.dto.IConfiguration;
-import ru.smcsystem.api.dto.IContainerManaged;
-import ru.smcsystem.api.dto.IExecutionContext;
-import ru.smcsystem.api.dto.ObjectArray;
+import ru.smcsystem.api.dto.*;
 import ru.smcsystem.api.exceptions.ModuleException;
 
 import java.math.BigDecimal;
@@ -136,5 +133,13 @@ public interface ConfigurationTool extends IConfiguration {
      * @param text - text
      */
     void loggerError(String text);
+
+    /**
+     * get info by key
+     *
+     * @param key key name
+     * @return value for key
+     */
+    Optional<IValue> getInfo(String key);
 
 }
