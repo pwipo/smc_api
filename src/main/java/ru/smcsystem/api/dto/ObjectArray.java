@@ -138,8 +138,6 @@ public class ObjectArray implements Serializable, Cloneable {
     public void add(Number value) {
         if (value == null)
             throw new IllegalArgumentException();
-        if (!(ObjectType.BYTE.equals(this.type) || ObjectType.SHORT.equals(this.type) || ObjectType.INTEGER.equals(this.type) || ObjectType.LONG.equals(this.type) || ObjectType.FLOAT.equals(this.type) || ObjectType.DOUBLE.equals(this.type) || ObjectType.BIG_INTEGER.equals(this.type) || ObjectType.BIG_DECIMAL.equals(this.type)))
-            throw new IllegalArgumentException();
         switch (this.type) {
             case BYTE:
                 objects.add(value.byteValue());
@@ -169,6 +167,11 @@ public class ObjectArray implements Serializable, Cloneable {
                     throw new IllegalArgumentException();
                 objects.add(value);
                 break;
+            case VALUE_ANY:
+                objects.add(value);
+                break;
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
@@ -233,8 +236,6 @@ public class ObjectArray implements Serializable, Cloneable {
     public void add(int id, Number value) {
         if (value == null)
             throw new IllegalArgumentException();
-        if (!(ObjectType.BYTE.equals(this.type) || ObjectType.SHORT.equals(this.type) || ObjectType.INTEGER.equals(this.type) || ObjectType.LONG.equals(this.type) || ObjectType.FLOAT.equals(this.type) || ObjectType.DOUBLE.equals(this.type) || ObjectType.BIG_INTEGER.equals(this.type) || ObjectType.BIG_DECIMAL.equals(this.type)))
-            throw new IllegalArgumentException();
         switch (this.type) {
             case BYTE:
                 objects.add(id, value.byteValue());
@@ -264,6 +265,11 @@ public class ObjectArray implements Serializable, Cloneable {
                     throw new IllegalArgumentException();
                 objects.add(id, value);
                 break;
+            case VALUE_ANY:
+                objects.add(id, value);
+                break;
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
