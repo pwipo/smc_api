@@ -66,7 +66,12 @@ public class ObjectElement implements Serializable, Cloneable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ObjectElement that = (ObjectElement) o;
-        return Objects.equals(fields, that.fields);
+        if (fields.size() != that.fields.size()) return false;
+        for (ObjectField field : fields) {
+            if (that.findField(field.getName()).filter(f -> f.equals(field)).isEmpty())
+                return false;
+        }
+        return true;
     }
 
     @Override
