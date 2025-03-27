@@ -32,36 +32,6 @@ public interface IConfiguration {
     String getDescription();
 
     /**
-     * get all settings
-     *
-     * @return settings
-     */
-    Map<String, IValue> getAllSettings();
-
-    /**
-     * get setting value
-     *
-     * @param key setting name
-     * @return IValue
-     */
-    Optional<IValue> getSetting(String key);
-
-    /**
-     * get all variables
-     *
-     * @return IValue
-     */
-    Map<String, IValue> getAllVariables();
-
-    /**
-     * get variable
-     *
-     * @param key variable name
-     * @return IValue
-     */
-    Optional<IValue> getVariable(String key);
-
-    /**
      * get buffer size
      *
      * @return int

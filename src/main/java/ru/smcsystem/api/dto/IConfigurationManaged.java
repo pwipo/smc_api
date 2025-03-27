@@ -2,6 +2,7 @@ package ru.smcsystem.api.dto;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -17,6 +18,36 @@ public interface IConfigurationManaged extends IConfiguration {
      * @param name unique name for container
      */
     void setName(String name);
+
+    /**
+     * get all settings
+     *
+     * @return settings
+     */
+    Map<String, IValue> getAllSettings();
+
+    /**
+     * get setting value
+     *
+     * @param key setting name
+     * @return IValue
+     */
+    Optional<IValue> getSetting(String key);
+
+    /**
+     * get all variables
+     *
+     * @return IValue
+     */
+    Map<String, IValue> getAllVariables();
+
+    /**
+     * get variable
+     *
+     * @param key variable name
+     * @return IValue
+     */
+    Optional<IValue> getVariable(String key);
 
     /**
      * change setting
