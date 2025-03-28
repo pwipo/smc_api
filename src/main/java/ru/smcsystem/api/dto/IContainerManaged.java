@@ -49,7 +49,7 @@ public interface IContainerManaged extends IContainer {
     /**
      * get child container
      *
-         * @param id serial number in the list of child containers
+     * @param id serial number in the list of child containers
      * @return IContainer
      */
     Optional<IContainer> getContainer(int id);
@@ -68,5 +68,23 @@ public interface IContainerManaged extends IContainer {
      * @param id serial number in the list of child containers
      */
     void removeContainer(int id);
+
+    /**
+     * get child configuration as managed
+     * similar getConfiguration
+     *
+     * @param id serial number in the list of child configurations
+     * @return IConfigurationManaged
+     */
+    Optional<IConfigurationManaged> getConfigurationManaged(int id);
+
+    /**
+     * get child container as managed
+     * similar getContainer
+     *
+     * @param id serial number in the list of child containers
+     * @return IContainerManaged
+     */
+    Optional<IContainerManaged> getContainerManaged(int id);
 
 }
