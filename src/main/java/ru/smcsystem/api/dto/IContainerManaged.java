@@ -88,10 +88,27 @@ public interface IContainerManaged extends IContainer {
     Optional<IContainerManaged> getContainerManaged(int id);
 
     /**
+     * get all shapes in container
      *
-     *
-     * @return true if success
+     * @return ObjectArray
      */
+    ObjectArray getShapes();
+
+    /**
+     * get decoration shapes in container
+     * not include cfgs, apps and containers
+     *
+     * @return ObjectArray
+     */
+    ObjectArray getDecorationShapes();
+
+    /**
+     * get all cfgs as text on smcl in current container
+     *
+     * @return smcl
+     */
+    String getSmcl();
+
     /**
      * save and execute text on smcl in current container
      *
