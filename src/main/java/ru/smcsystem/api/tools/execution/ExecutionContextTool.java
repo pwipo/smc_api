@@ -194,4 +194,18 @@ public interface ExecutionContextTool extends IExecutionContext {
      */
     boolean isNeedStop();
 
+    /**
+     * get current thread id
+     *
+     * @return Long
+     */
+    Long getThreadId();
+
+    /**
+     * get current user nickname
+     *
+     * @return String or null
+     */
+    String getNickName();
+
 }

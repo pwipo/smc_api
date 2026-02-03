@@ -87,4 +87,17 @@ public interface IContainerManaged extends IContainer {
      */
     Optional<IContainerManaged> getContainerManaged(int id);
 
+    /**
+     *
+     *
+     * @return true if success
+     */
+    /**
+     * save and execute text on smcl in current container
+     *
+     * @param text text on smcl
+     * @return true if success
+     */
+    boolean saveSmcl(String text);
+
 }

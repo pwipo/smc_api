@@ -3,6 +3,7 @@ package ru.smcsystem.api.tools.execution;
 import ru.smcsystem.api.dto.IAction;
 import ru.smcsystem.api.dto.ICommand;
 import ru.smcsystem.api.dto.IExecutionContext;
+import ru.smcsystem.api.dto.IExecutionContextManaged;
 import ru.smcsystem.api.enumeration.CommandType;
 
 import java.util.List;
@@ -119,5 +120,67 @@ public interface FlowControlTool {
      * @return IExecutionContext
      */
     Optional<IExecutionContext> getManagedExecutionContext(int id);
+
+    /**
+     * throw new command to managed execution context
+     * command execute in this thread
+     * function will wait for the command to execute
+     *
+     * @param type      type of command
+     * @param managedEC managed execution context
+     * @param values    list of values for create dummy messages from this process, or null
+     */
+    void executeNowDirect(CommandType type, IExecutionContextManaged managedEC, List<Object> values);
+
+    /**
+     * throw new command to managed execution context
+     * command execute in new thread
+     * function return control immediately
+     *
+     * @param type            type of command
+     * @param managedECs      list of Managed execution contexts
+     * @param values          list of values for create dummy messages from this process, or null
+     * @param waitingTacts    if it is necessary that the new thread first wait for the specified time (in tacts)
+     * @param maxWorkInterval define max work interval of new thread (in tacts)
+     * @return return id of thread
+     */
+    long executeParallelDirect(CommandType type, List<IExecutionContextManaged> managedECs, List<Object> values, Integer waitingTacts, Integer maxWorkInterval);
+
+    /**
+     * get data from managed execution context
+     * who receive commands from this process
+     *
+     * @param managedEC managed execution context
+     * @return only DATA messages
+     */
+    List<IAction> getMessagesFromExecutedDirect(IExecutionContextManaged managedEC);
+
+    /**
+     * get data from managed execution context
+     * who receive commands from this process
+     * in parallel thread
+     *
+     * @param threadId  id thread
+     * @param managedEC managed execution context
+     * @return only DATA messages
+     */
+    List<IAction> getMessagesFromExecutedDirect(long threadId, IExecutionContextManaged managedEC);
+
+    /**
+     * work as getMessagesFromExecuted
+     *
+     * @param managedEC managed execution context
+     * @return all commands
+     */
+    List<ICommand> getCommandsFromExecutedDirect(IExecutionContextManaged managedEC);
+
+    /**
+     * work as getMessagesFromExecuted
+     *
+     * @param threadId  id thread
+     * @param managedEC managed execution context
+     * @return all commands
+     */
+    List<ICommand> getCommandsFromExecutedDirect(long threadId, IExecutionContextManaged managedEC);
 
 }

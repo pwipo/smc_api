@@ -15,20 +15,6 @@ public interface IModule {
      */
     String getName();
 
-    /*
-     * module version
-     *
-     * @return version
-     */
-    // String getVersion();
-
-    /*
-     * module provider
-     *
-     * @return String
-     */
-    //String getProvider();
-
     int countTypes();
 
     /**
@@ -86,5 +72,14 @@ public interface IModule {
      * @return int
      */
     int getMaxCountManagedConfigurations(int typeId);
+
+    /**
+     * get module info
+     * on english
+     * object contain fields: description, settings, types
+     *
+     * @return ObjectElement
+     */
+    ObjectElement getInfo();
 
 }

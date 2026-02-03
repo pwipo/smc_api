@@ -1,8 +1,5 @@
 package ru.smcsystem.api.dto;
 
-import java.util.Map;
-import java.util.Optional;
-
 /**
  * Interface for Module Configuration
  *
@@ -58,5 +55,19 @@ public interface IConfiguration {
      * @return boolean
      */
     boolean isActive();
+
+    /**
+     * get container
+     *
+     * @return IContainer
+     */
+    IContainer getContainerSimple();
+
+    /**
+     * get own shape
+     *
+     * @return ObjectElement
+     */
+    ObjectElement getShape();
 
 }

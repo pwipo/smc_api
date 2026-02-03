@@ -187,4 +187,12 @@ public interface IConfigurationManaged extends IConfiguration {
      */
     IContainerManaged getContainer();
 
+    /**
+     * get full path to work directory
+     * only if module allow this
+     *
+     * @return full path to directory or NULL
+     */
+    String getWorkDirectory();
+
 }

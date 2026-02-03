@@ -104,7 +104,6 @@ public interface ConfigurationTool extends IConfiguration {
      * only if module allow this
      *
      * @return full path to directory or NULL
-     * @throws ModuleException if module not allow work with work directory
      */
     String getWorkDirectory();
 
