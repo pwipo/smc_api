@@ -74,8 +74,17 @@ public enum MessageType {
      * emit by module process while execution phase
      * log message
      */
-    LOG/*(1002)*/;
+    LOG/*(1002)*/,
 
+    /**
+     * emit by system when enable system extend print
+     */
+    EXTEND_SOURCE_GET_ID/*(101)*/,
+    EXTEND_SOURCE_GET_DATA/*(102)*/,
+    EXTEND_EC_PARAM_SEND_ID/*(103)*/,
+    EXTEND_EC_PARAM_SEND_DATA/*(104)*/,
+    EXTEND_EC_PARAM_RETURN_ID/*(105)*/,
+    EXTEND_EC_PARAM_RETURN_DATA/*(106)*/,
 
     /*
     private Integer value;
